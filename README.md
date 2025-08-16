@@ -10,9 +10,9 @@
      make
      make install
 ```
-
-	to change the macro version of libtool library to 2.5.3
-	in order for the make commands to work and be able to compile
+	
+- I had to change ltversion.m4 file 'macro_version' to 2.5.3
+or whatever version the build error said that it wanted to build libtool with.
 
 # build and run
 ```sh
