@@ -7,5 +7,5 @@ if [ -z "./$FILENAME" ]; then
 	rm "$FILENAME"
 fi 
 
-cobc -x hello.cob && ./hello
+cobc -x "$FILENAME.cob" && "./$FILENAME"
 

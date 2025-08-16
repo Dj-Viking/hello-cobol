@@ -17,6 +17,16 @@ and then run
 $ make && make install;
 ```
 
+- set LD_LIBRARY_PATH in your bashrc
+```sh
+$ echo "LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+```
+
+- resource your bashrc
+```sh
+source ~/.bashrc
+```
+
 # Build and run this project
 ```sh
 sh build.sh
