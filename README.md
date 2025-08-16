@@ -1,8 +1,8 @@
 # dependencies
-	- cobc: gnucobol compiler
+- cobc: gnucobol compiler
 
-	- NOTE: on my arch linux pc I had to change ltversion.m4 file
-	after running:
+- NOTE: on my arch linux pc I had to change ltversion.m4 file
+after running:
 
 ```sh
      test -f configure || ./bootstrap
