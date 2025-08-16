@@ -22,10 +22,7 @@ $ make && make install;
 $ echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
 ```
 
-- resource your bashrc
-```sh
-source ~/.bashrc
-```
+- restart your bash environment
 
 # Build and run this project
 ```sh
