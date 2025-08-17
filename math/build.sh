@@ -5,7 +5,7 @@ FILENAME=math
 
 # clean up
 if [ -d "./dist" ]; then
-	if ! [ -z "./dist/$FILENAME" ]; then
+	if [ -z "./dist/$FILENAME" ]; then
 		rm "./dist/$FILENAME";
 	fi
 fi
@@ -14,9 +14,9 @@ fi
 if ! [ -d "dist" ]; then
 	mkdir dist;
 	pushd dist;
-else 
+else
 	pushd dist;
-fi 
+fi
 
 #compile and run
 cobc -x "../$FILENAME.cob" \
@@ -26,6 +26,6 @@ cobc -x "../$FILENAME.cob" \
 	&& "./$FILENAME" \
 	&& echo "" \
 	&& echo "done..." \
-	&& echo ""; 
+	&& echo "";
 
 popd
