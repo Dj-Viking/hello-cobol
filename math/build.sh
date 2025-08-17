@@ -4,18 +4,18 @@ set -e
 FILENAME=math
 
 # clean up
-if [ -d "./build" ]; then
-	if ! [ -z "./build/$FILENAME" ]; then
-		rm "./build/$FILENAME";
+if [ -d "./dist" ]; then
+	if ! [ -z "./dist/$FILENAME" ]; then
+		rm "./dist/$FILENAME";
 	fi
 fi
 
-# make build dir if not exist
-if ! [ -d "build" ]; then
-	mkdir build;
-	pushd build;
+# make dist dir if not exist
+if ! [ -d "dist" ]; then
+	mkdir dist;
+	pushd dist;
 else 
-	pushd build;
+	pushd dist;
 fi 
 
 #compile and run
