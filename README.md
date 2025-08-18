@@ -2,7 +2,7 @@
 - cobc: gnucobol compiler at [github](https://github.com/OCamlPro/gnucobol)
 
 - NOTE: on my arch linux pc I had to change ltversion.m4 file
-after running:
+after running in the gnucobol cloned repository:
 
 ```sh
 $ test -f configure || ./bootstrap 
