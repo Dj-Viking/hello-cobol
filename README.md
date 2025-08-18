@@ -18,6 +18,8 @@ $ make && make install;
 ```
 
 - set LD_LIBRARY_PATH in your bashrc
+- with the location of where libcob.so.* shared object file
+is located after installing cobc
 ```sh
 $ echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
 ```
