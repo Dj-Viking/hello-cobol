@@ -28,5 +28,5 @@ $ echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
 
 # Build and run this project
 ```sh
-sh build.sh
+sh build.sh <filename (with or without extension)>
 ```
