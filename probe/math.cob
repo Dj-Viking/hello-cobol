@@ -4,7 +4,7 @@
           ENVIRONMENT DIVISION.
           DATA DIVISION.
           WORKING-STORAGE SECTION.
-          01 working-section-vars.
+          01 vars-to-add.
              *> single digit (01)
              05 a    pic 9(01) value 2.
              05 b    pic 9(01) value 2.

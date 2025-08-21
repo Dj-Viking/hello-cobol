@@ -11,6 +11,14 @@ if [ -z "$1" ]; then
 fi
 
 FILENAME="$1"
+EXTENSION=""
+FILE_TO_RUN="${FILENAME%.*}"
+
+if ! [ "${FILENAME##*.}" = "cob" ]; then
+	FILENAME="$FILENAME.cob"
+	EXTENSION="${FILENAME##.*}"
+	FILE_TO_RUN="${FILENAME%.*}"
+fi
 
 # clean up
 if [ -d "./dist" ]; then
@@ -28,11 +36,11 @@ else
 fi
 
 #compile and run
-cobc -x "../$FILENAME.cob" \
+cobc -x "../$FILENAME" \
 	&& echo "" \
 	&& echo "running..." \
 	&& echo "" \
-	&& "./$FILENAME" \
+	&& "./$FILE_TO_RUN" \
 	&& echo "" \
 	&& echo "done..." \
 	&& echo "";
