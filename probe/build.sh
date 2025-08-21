@@ -6,7 +6,7 @@ set -e
 if [ -z "$1" ]; then
 	echo "[ERROR]: missing first arg to script 
 	 please provide name of file to compile and run
-	 e.g. 'sh build.sh math'"
+	 usage: 'sh build.sh math' or 'sh build.sh math.cob'"
 	exit 1;
 fi
 
