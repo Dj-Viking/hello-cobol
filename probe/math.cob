@@ -4,11 +4,11 @@
           ENVIRONMENT DIVISION.
           DATA DIVISION.
           WORKING-STORAGE SECTION.
-          01 WS-VAR.
+          01 working-section-vars.
              *> single digit (01)
-             05 WS-A    PIC 9(01) VALUE 2.
-             05 WS-B    PIC 9(01) VALUE 2.
+             05 a    pic 9(01) value 2.
+             05 b    pic 9(01) value 2.
           PROCEDURE DIVISION.
-             ADD WS-A TO WS-B.
-             DISPLAY "Add result -> " WS-B. *> should display 4
-             STOP RUN.
+             add a to b.
+             display "Add result -> " b. *> should display 4
+             stop run.
