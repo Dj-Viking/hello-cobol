@@ -17,7 +17,6 @@ FILE_TO_RUN="${FILENAME%.*}"
 # script vars
 if ! [ "${FILENAME##*.}" = "cob" ]; then
 	FILENAME="$FILENAME.cob"
-	FILE_TO_RUN="${FILENAME%.*}"
 fi
 
 # clean up
