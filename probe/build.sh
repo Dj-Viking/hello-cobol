@@ -11,14 +11,12 @@ if [ -z "$1" ]; then
 fi
 
 FILENAME="$1"
-EXTENSION=""
 FILE_TO_RUN="${FILENAME%.*}"
 
 # if input arg text didn't contain the .cob extension add it and set up the other
 # script vars
 if ! [ "${FILENAME##*.}" = "cob" ]; then
 	FILENAME="$FILENAME.cob"
-	EXTENSION="${FILENAME##.*}"
 	FILE_TO_RUN="${FILENAME%.*}"
 fi
 
