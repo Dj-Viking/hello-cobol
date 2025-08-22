@@ -5,7 +5,7 @@
 after running in the gnucobol cloned repository:
 
 ```sh
-$ test -f configure || ./bootstrap 
+$ test -f configure || ./build_aux/bootstrap 
 $ ./configure
 ```
 	
