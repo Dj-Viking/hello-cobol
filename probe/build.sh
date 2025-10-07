@@ -35,7 +35,7 @@ else
 fi
 
 #compile and run
-cobc -x "../$FILENAME" \
+cobc -x -free -v "../$FILENAME" \
 	&& echo "" \
 	&& echo "running..." \
 	&& echo "" \
