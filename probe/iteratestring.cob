@@ -56,27 +56,27 @@
            move 1 to ws-start
            move 0 to ws-count
            
-           PERFORM VARYING WS-End FROM 1 BY 1 UNTIL WS-End > WS-Len
-               MOVE InputRecord(WS-End:1) TO WS-Char
-               IF WS-Char = WS-Delim
-                   ADD 1 TO WS-Count
-                   COMPUTE WS-Field-Len = WS-End - WS-Start
-                   IF WS-Field-Len > 0
-                       MOVE SPACES TO WS-Text(WS-Count)
-                       MOVE InputRecord(WS-Start:WS-Field-Len)
-                           TO WS-Text(WS-Count)
-                   END-IF
-                   COMPUTE WS-Start = WS-End + 1
-               ELSE
-                   IF WS-End = WS-Len
-                       ADD 1 TO WS-Count
-                       COMPUTE WS-Field-Len = WS-End - WS-Start + 1
-                       MOVE SPACES TO WS-Text(WS-Count)
-                       MOVE InputRecord(WS-Start:WS-Field-Len)
-                           TO WS-Text(WS-Count)
-                   END-IF
-               END-IF
-           END-PERFORM
+           perform varying ws-end from 1 by 1 until ws-end > ws-len
+               move inputrecord(ws-end:1) to ws-char
+               if ws-char = ws-delim
+                   add 1 to ws-count
+                   compute ws-field-len = ws-end - ws-start
+                   if ws-field-len > 0
+                       move spaces to ws-text(ws-count)
+                       move inputrecord(ws-start:ws-field-len)
+                           to ws-text(ws-count)
+                   end-if
+                   compute ws-start = ws-end + 1
+               else
+                   if ws-end = ws-len
+                       add 1 to ws-count
+                       compute ws-field-len = ws-end - ws-start + 1
+                       move spaces to ws-text(ws-count)
+                       move inputrecord(ws-start:ws-field-len)
+                           to ws-text(ws-count)
+                   end-if
+               end-if
+           end-perform
 
            display "split results:"
            perform varying ws-end from 1 by 1 until ws-end > ws-count
