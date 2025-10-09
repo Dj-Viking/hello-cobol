@@ -42,7 +42,13 @@
                display "error opening file. status=" FileStatus
                stop run
            end-if
+           read InputFile
+               at end
+                   display "no data in file."
+                   close InputFile
+                   stop run
       *>     DISPLAY "Opening file example.txt"
+           end-read
            .
 
        READ-CHARS.
