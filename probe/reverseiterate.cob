@@ -21,10 +21,10 @@
            01  ws-delim          pic X      value ",".
            01  ws-len            PIC 9(4)   value 0.
            01  ws-start          pic 9(4)   value 1.
-           01  ws-end            pic S9(5)  value 0.
+           01  ws-index          pic S9(5)  value 0.
            01  ws-count          pic 9(5)   value 0.
            01  ws-char           pic X      value space.
-           01  ws-field-len      pic 9(4)   value 0.
+           01  ws-str-len        pic 9(4)   value 0.
            01  ws-table.
                05 ws-item occurs 50 times.
                   10 ws-text     pic X(40).
@@ -49,23 +49,26 @@
                move 0 
                to ws-count
                
-               perform varying ws-end from 1 by 1 until ws-end > ws-len
-                   move inputrecord(ws-end:1) to ws-char
+               perform varying ws-index from 1 by 1 until ws-index > ws-len
+                   move inputrecord(ws-index:1) 
+                   to ws-char
                    if ws-char = ws-delim
                        add 1 to ws-count
-                       compute ws-field-len = ws-end - ws-start
-                       if ws-field-len > 0
-                           move spaces to ws-text(ws-count)
-                           move inputrecord(ws-start:ws-field-len)
+                       compute ws-str-len = ws-index - ws-start
+                       if ws-str-len > 0
+                           move spaces 
+                               to ws-text(ws-count)
+                           move inputrecord(ws-start:ws-str-len)
                                to ws-text(ws-count)
                        end-if
-                       compute ws-start = ws-end + 1
+                       compute ws-start = ws-index + 1
                    else
-                       if ws-end = ws-len
+                       if ws-index = ws-len
                            add 1 to ws-count
-                           compute ws-field-len = ws-end - ws-start + 1
-                           move spaces to ws-text(ws-count)
-                           move inputrecord(ws-start:ws-field-len)
+                           compute ws-str-len = ws-index - ws-start + 1
+                           move spaces 
+                               to ws-text(ws-count)
+                           move inputrecord(ws-start:ws-str-len)
                                to ws-text(ws-count)
                        end-if
                    end-if
@@ -90,14 +93,14 @@
            read-chars.
 
                display "forward loop: "
-               perform varying ws-end from 1 by 1 until ws-end > ws-count
-                   display "item " ws-end ": " ws-text(ws-end)
+               perform varying ws-index from 1 by 1 until ws-index > ws-count
+                   display "item " ws-index ": " ws-text(ws-index)
                end-perform
 
       *>     note:  reverse loop
                display "reverse loop"
-               perform varying ws-end from ws-count by -1 until ws-end = 0
-                   display "test " ws-end ": " ws-text(ws-end)
+               perform varying ws-index from ws-count by -1 until ws-index = 0
+                   display "test " ws-index ": " ws-text(ws-index)
                end-perform
            .
 
